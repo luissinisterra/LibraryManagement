@@ -1,13 +1,14 @@
 package models;
 
-class Person {
-    protected String document;
-    protected String name;
-    protected String email;
-    protected String phoneNumber;
-    protected String address;
+class Person extends User {
+    private String document;
+    private String name;
+    private String email;
+    private String phoneNumber;
+    private String address;
 
-    public Person(String document, String name, String email, String phoneNumber, String address) {
+    public Person(String username, String password, String document, String name, String email, String phoneNumber, String address) {
+        super(username, password);
         this.document = document;
         this.name = name;
         this.email = email;
