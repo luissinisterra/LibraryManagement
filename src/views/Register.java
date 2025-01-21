@@ -4,6 +4,8 @@
  */
 package views;
 
+import controllers.impl.MemberController;
+import models.Member;
 import org.w3c.dom.ls.LSOutput;
 
 import javax.swing.*;
@@ -17,9 +19,13 @@ public class Register extends javax.swing.JFrame {
     /**
      * Creates new form Register
      */
+
+    MemberController memberController;
+
     public Register() {
         initComponents();
         this.setLocationRelativeTo(this);
+        this.memberController = new MemberController();
         this.prepareComboBox();
     }
 
@@ -33,13 +39,10 @@ public class Register extends javax.swing.JFrame {
         //panelRoleAttributes.setBorder(BorderFactory.createTitledBorder("Mi Título"));
     }
 
-    private void verify(){
-        if(cbxRoles.getSelectedItem().equals("Supervisor")) JOptionPane.showMessageDialog(rootPane, "Supervisor is a supervisor");
-    }
-
     private void blockInputs(){
         if(cbxRoles.getSelectedItem().equals("Select role")){
             JOptionPane.showMessageDialog(rootPane, "You have selected a role");
+            txtDeparment.setEnabled(false);
             return;
         }
 
@@ -340,17 +343,23 @@ public class Register extends javax.swing.JFrame {
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         try{
+
+            this.blockInputs();
+
             String document = txtDocument.getText();
             String name = txtName.getText();
             String email = txtEmail.getText();
-            int phoneNumber = Integer.parseInt(txtPhoneNumber.getText());
+            String phoneNumber = txtPhoneNumber.getText();
             String address = txtAddress.getText();
-            //this.
+            String username = txtUsername.getText();
+            String password = txtPassword.getText();
+            Member newMember = new Member(username, password, document, name, email, phoneNumber, address);
+
+            System.out.println(newMember);
+            this.memberController.addMember(newMember);
         }catch (RuntimeException e){
             JOptionPane.showMessageDialog(null, e);
         }
-        
-        
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     /**

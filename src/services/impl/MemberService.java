@@ -12,12 +12,12 @@ public class MemberService implements IMemberService {
     private List<Member> members;
 
     public MemberService() {
-
+        this.memberDAO = new MemberDAO();
     }
 
     @Override
     public void addMember(Member member) {
-
+        this.memberDAO.addMember(member);
     }
 
     @Override

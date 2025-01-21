@@ -12,7 +12,7 @@ public class Member extends Person implements IMember {
     private List<String> borrowedBooks;
     private double outstandingFines;
 
-    public Member(String username, String password, String document, String name, String email, String phoneNumber, String address, Date registrationDate, Date expirationDate, List<String> borrowedBooks, double outstandingFines) {
+    public Member(String username, String password, String document, String name, String email, String phoneNumber, String address) {
         super(username, password, document, name, email, phoneNumber, address);
         this.registrationDate = new Date();
         this.expirationDate = new Date();
@@ -50,5 +50,21 @@ public class Member extends Person implements IMember {
 
     public void setOutstandingFines(double outstandingFines) {
         this.outstandingFines = outstandingFines;
+    }
+
+    @Override
+    public String toString() {
+        return "Member {" +
+                "username='" + getUsername() + '\'' +
+                ", document='" + getDocument() + '\'' +
+                ", name='" + getName() + '\'' +
+                ", email='" + getEmail() + '\'' +
+                ", phoneNumber='" + getPhoneNumber() + '\'' +
+                ", address='" + getAddress() + '\'' +
+                ", registrationDate=" + registrationDate +
+                ", expirationDate=" + expirationDate +
+                ", borrowedBooks=" + borrowedBooks +
+                ", outstandingFines=" + outstandingFines +
+                '}';
     }
 }
