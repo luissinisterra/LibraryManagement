@@ -71,7 +71,7 @@ public class Register extends javax.swing.JFrame {
         lblName = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         lblEmail = new javax.swing.JLabel();
-        textEmail = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         lblPhoneNumber = new javax.swing.JLabel();
         txtPhoneNumber = new javax.swing.JTextField();
         lblAddress = new javax.swing.JLabel();
@@ -123,7 +123,7 @@ public class Register extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtDocument)
-                    .addComponent(textEmail)
+                    .addComponent(txtEmail)
                     .addComponent(txtAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))
                 .addGap(71, 71, 71)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -149,7 +149,7 @@ public class Register extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEmail)
-                    .addComponent(textEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblPhoneNumber)
                     .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -318,7 +318,16 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSelectActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        // TODO add your handling code here:
+        try{
+            String document = txtDocument.getText();
+            String name = txtName.getText();
+            String email = txtEmail.getText();
+            int phoneNumber = Integer.parseInt(txtPhoneNumber.getText());
+            String address = txtAddress.getText();
+            //this.
+        }catch (RuntimeException e){
+            JOptionPane.showMessageDialog(null, e);
+        }
         
         
     }//GEN-LAST:event_btnRegisterActionPerformed
@@ -378,10 +387,10 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPhoneNumber;
     private javax.swing.JPanel panelRoleAttributes;
-    private javax.swing.JTextField textEmail;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtDeparment;
     private javax.swing.JTextField txtDocument;
+    private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPhoneNumber;
     // End of variables declaration//GEN-END:variables

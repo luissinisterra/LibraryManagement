@@ -1,6 +1,8 @@
 package models;
 
-public class Supervisor extends Person{
+import models.interfaces.ISupervisor;
+
+public class Supervisor extends Person implements ISupervisor {
     private String department;
 
     public Supervisor(String username, String password, String document, String name, String email, String phoneNumber, String address, String department) {

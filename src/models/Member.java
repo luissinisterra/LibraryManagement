@@ -1,10 +1,12 @@
 package models;
 
+import models.interfaces.IMember;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Member extends Person{
+public class Member extends Person implements IMember {
     private Date registrationDate;
     private Date expirationDate;
     private List<String> borrowedBooks;
