@@ -1,6 +1,8 @@
-package Models;
+package models;
 
-public class Book {
+import models.interfaces.IBook;
+
+public class Book implements IBook {
     private int id;
     private String title;
     private String author;

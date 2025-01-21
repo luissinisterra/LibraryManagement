@@ -1,4 +1,4 @@
-package Dao;
+package persistence;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

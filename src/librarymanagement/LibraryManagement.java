@@ -4,8 +4,9 @@
  */
 package librarymanagement;
 
-import Dao.BookDAO;
-import Models.Book;
+
+import models.Book;
+import persistence.BookDAO;
 
 /**
  *
