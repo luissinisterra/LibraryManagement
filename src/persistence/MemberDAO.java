@@ -13,10 +13,12 @@ public class MemberDAO {
     public MemberDAO() {}
 
     public void addMember(Member member) {
-        String sql = "INSERT INTO members (username, password, document, name, email, phone_number, address, registration_date, expiration_date, outstanding_fines) " +
+        String sql = "INSERT INTO members (username, password, document, name, email, phone_number, address, registration_date, expiration_date, outstanding_fines)" +
                 "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        /*try (Connection con = dbc.connect(); PreparedStatement ps = con.prepareStatement(sql)) {
+        try(Connection con = this.dbc.connect();
+            PreparedStatement ps = con.prepareStatement(sql)) {
+
             ps.setString(1, member.getUsername());
             ps.setString(2, member.getPassword());
             ps.setString(3, member.getDocument());
@@ -32,7 +34,7 @@ public class MemberDAO {
             System.out.println("Member added successfully!");
         } catch (SQLException e) {
             throw new RuntimeException("SQLException: " + e.getMessage());
-        }*/
+        }
     }
 
 }

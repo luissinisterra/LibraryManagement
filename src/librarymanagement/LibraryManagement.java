@@ -20,7 +20,7 @@ public class LibraryManagement {
     public static void main(String[] args) {
         BookDAO b = new BookDAO();
         Book book = new Book(
-                1, // id
+                2, // id
                 "To Kill a Mockingbird", // title
                 "Harper Lee", // author
                 "Fiction", // genre

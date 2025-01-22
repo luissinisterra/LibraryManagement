@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseConnection {
-    private String URL = "jdbc:sqlite:src/Dao/database.db";
+    private String URL = "jdbc:sqlite:src/persistence/database.db";
 
     public Connection connect() {
         Connection conn = null;

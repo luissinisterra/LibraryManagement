@@ -16,7 +16,9 @@ public class BookDAO {
         String sql = "INSERT INTO books (title, author, genre, publication_year, publisher, isbn, language, page_count, description, availability, price) " +
                 "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        try (Connection con = dbc.connect(); PreparedStatement ps = con.prepareStatement(sql)) {
+        try(Connection con = this.dbc.connect();
+            PreparedStatement ps = con.prepareStatement(sql)) {
+
             ps.setString(1, book.getTitle());
             ps.setString(2, book.getAuthor());
             ps.setString(3, book.getGenre());

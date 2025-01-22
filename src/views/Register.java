@@ -343,7 +343,6 @@ public class Register extends javax.swing.JFrame {
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         try{
-
             this.blockInputs();
 
             String document = txtDocument.getText();
@@ -359,6 +358,7 @@ public class Register extends javax.swing.JFrame {
             this.memberController.addMember(newMember);
         }catch (RuntimeException e){
             JOptionPane.showMessageDialog(null, e);
+            System.out.println(e);
         }
     }//GEN-LAST:event_btnRegisterActionPerformed
 
