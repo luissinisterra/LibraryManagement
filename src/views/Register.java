@@ -353,9 +353,8 @@ public class Register extends javax.swing.JFrame {
             String username = txtUsername.getText();
             String password = txtPassword.getText();
             Member newMember = new Member(username, password, document, name, email, phoneNumber, address);
-
-            System.out.println(newMember);
             this.memberController.addMember(newMember);
+
         }catch (RuntimeException e){
             JOptionPane.showMessageDialog(null, e);
             System.out.println(e);
