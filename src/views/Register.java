@@ -4,9 +4,8 @@
  */
 package views;
 
-import controllers.impl.MemberController;
-import models.Member;
-import org.w3c.dom.ls.LSOutput;
+import controllers.impl.UserController;
+import models.User;
 
 import javax.swing.*;
 
@@ -20,38 +19,23 @@ public class Register extends javax.swing.JFrame {
      * Creates new form Register
      */
 
-    MemberController memberController;
+    UserController userController;
 
     public Register() {
         initComponents();
         this.setLocationRelativeTo(this);
-        this.memberController = new MemberController();
+        this.userController = new UserController();
         this.prepareComboBox();
     }
 
     private void prepareComboBox() {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         model.addElement("Select role");
-        model.addElement("Supervisor");
-        model.addElement("Member");
+        model.addElement("Admin");
+        model.addElement("Client");
         cbxRoles.setModel(model);
 
         //panelRoleAttributes.setBorder(BorderFactory.createTitledBorder("Mi Título"));
-    }
-
-    private void blockInputs(){
-        if(cbxRoles.getSelectedItem().equals("Select role")){
-            JOptionPane.showMessageDialog(rootPane, "You have selected a role");
-            txtDeparment.setEnabled(false);
-            return;
-        }
-
-        if(cbxRoles.getSelectedItem().equals("Supervisor")){
-            txtDeparment.setEnabled(true);
-            return;
-        }
-
-        if(cbxRoles.getSelectedItem().equals("Member")) txtDeparment.setEnabled(false);
     }
 
     /**
@@ -83,12 +67,6 @@ public class Register extends javax.swing.JFrame {
         txtUsername = new javax.swing.JTextField();
         lblPassword = new javax.swing.JLabel();
         txtPassword = new javax.swing.JTextField();
-        panelRoleAttributes = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        txtDeparment = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         btnRegister = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         btnSelect = new javax.swing.JButton();
@@ -183,74 +161,6 @@ public class Register extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        panelRoleAttributes.setBorder(javax.swing.BorderFactory.createTitledBorder("Role attributes"));
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Supervisor attributes"));
-
-        jLabel3.setText("Deparment:");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(txtDeparment, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtDeparment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(17, Short.MAX_VALUE))
-        );
-
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Member attributes"));
-
-        jLabel4.setText("There're no more");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout panelRoleAttributesLayout = new javax.swing.GroupLayout(panelRoleAttributes);
-        panelRoleAttributes.setLayout(panelRoleAttributesLayout);
-        panelRoleAttributesLayout.setHorizontalGroup(
-            panelRoleAttributesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRoleAttributesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelRoleAttributesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        panelRoleAttributesLayout.setVerticalGroup(
-            panelRoleAttributesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRoleAttributesLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
         btnRegister.setText("Register");
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -297,9 +207,6 @@ public class Register extends javax.swing.JFrame {
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(panelRoleAttributes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(btnBack)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -319,8 +226,6 @@ public class Register extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(panelRoleAttributes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnRegister, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -338,12 +243,12 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
-        this.blockInputs();
     }//GEN-LAST:event_btnSelectActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         try{
-            this.blockInputs();
+
+            String role = cbxRoles.getSelectedItem().toString();
 
             String document = txtDocument.getText();
             String name = txtName.getText();
@@ -352,8 +257,9 @@ public class Register extends javax.swing.JFrame {
             String address = txtAddress.getText();
             String username = txtUsername.getText();
             String password = txtPassword.getText();
-            Member newMember = new Member(username, password, document, name, email, phoneNumber, address);
-            this.memberController.addMember(newMember);
+            User newUser = new User(document, name, email, phoneNumber, address, username, password, 0, (role.equals("Admin")) ? 1 : 0);
+
+            this.userController.addUser(newUser);
 
         }catch (RuntimeException e){
             JOptionPane.showMessageDialog(null, e);
@@ -404,11 +310,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblDocument;
@@ -417,9 +319,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblPhoneNumber;
     private javax.swing.JLabel lblUsername;
-    private javax.swing.JPanel panelRoleAttributes;
     private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtDeparment;
     private javax.swing.JTextField txtDocument;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtName;
