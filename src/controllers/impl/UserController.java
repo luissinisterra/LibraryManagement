@@ -32,4 +32,8 @@ public class UserController implements IUserController {
     public ArrayList<User> geUsers() {
         return this.userService.getUsers();
     }
+
+    public User logIn(String username, String password) throws RuntimeException {
+        return this.userService.logIn(username, password);
+    }
 }

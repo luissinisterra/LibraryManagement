@@ -1,12 +1,12 @@
 package models;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class User extends Person {
     private String username;
     private String password;
-    private LocalDateTime registrationDate;
-    private LocalDateTime expirationDate;
+    private LocalDate registrationDate;
+    private LocalDate expirationDate;
     private int outstandingFines;
     private int role;
 
@@ -14,7 +14,7 @@ public class User extends Person {
         super(document, name, email, phoneNumber, address);
         this.username = username;
         this.password = password;
-        this.registrationDate = LocalDateTime.now();
+        this.registrationDate = LocalDate.now();
         this.expirationDate = null;
         this.outstandingFines = outstandingFines;
         this.role = role;
@@ -36,19 +36,19 @@ public class User extends Person {
         this.password = password;
     }
 
-    public LocalDateTime getRegistrationDate() {
+    public LocalDate getRegistrationDate() {
         return registrationDate;
     }
 
-    public void setRegistrationDate(LocalDateTime registrationDate) {
+    public void setRegistrationDate(LocalDate registrationDate) {
         this.registrationDate = registrationDate;
     }
 
-    public LocalDateTime getExpirationDate() {
+    public LocalDate getExpirationDate() {
         return expirationDate;
     }
 
-    public void setExpirationDate(LocalDateTime expirationDate) {
+    public void setExpirationDate(LocalDate expirationDate) {
         this.expirationDate = expirationDate;
     }
 
